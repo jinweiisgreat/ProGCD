@@ -1,5 +1,3 @@
-
-
 set -e
 set -x
 
@@ -23,5 +21,3 @@ python ./train.py \
     --exp_name aircraft_Progcd
 
     # warmup_teacher_temp_epochs: 50->10; 100->20; 200->30;
-
-
