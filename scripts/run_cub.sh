@@ -1,4 +1,3 @@
-
 set -e
 set -x
 
@@ -19,5 +18,4 @@ python ./train.py \
     --warmup_teacher_temp_epochs 30 \
     --memax_weight 1 \
     --sinkhorn 0.1 \
-    --exp_name cub_Progcd 
-    
+    --exp_name cub_Progcd
