@@ -1,5 +1,3 @@
-
-
 set -e
 set -x
 
@@ -21,5 +19,3 @@ python ./train.py \
     --memax_weight 1 \
     --sinkhorn 0.2 \
     --exp_name scars_Progcd
-    
-
