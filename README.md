@@ -6,32 +6,10 @@ Generalized Category Discovery (GCD) addresses a challenging open-world learning
 
 ## Table of Contents
 
-- [Introduction](##introduction)
-- [Installation](##installation)
-- [Result](##Result)
-- [Training Steps](#training-steps)
-- [Example Images](#example-images)
-- [License](#license)
+- [Introduction](##Running)
 
-# Introduction
-
-Provide a detailed introduction to your project, including its background, motivation, and the problems it aims to solve. Highlight key features and advantages.
-
-## Installation
-
-### Prerequisites
-
-List any prerequisites required to run your project, such as software, libraries, or tools.
-
-### Steps
+## Running
+### Dependencies
 ```shell
-# Clone the repository
-git clone https://github.com/your-username/your-project.git
-
-# Navigate to the project directory
-cd your-project
-
-# Install dependencies
-pip install -r requirements.txt
+pip install -r requirments.txt
 ```
-## Result
