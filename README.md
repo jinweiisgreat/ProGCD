@@ -7,13 +7,14 @@ Generalized Category Discovery (GCD) addresses a challenging open-world learning
 ## Table of Contents
 
 - [Introduction](#running)
+- [Training](#training)
 
 ## Running
 ### Dependencies
 ```shell
 pip install -r requirments.txt
 ```
-## Scripts
+## Training
 
 ### 1. Prompt Generation Stage
 
