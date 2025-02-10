@@ -15,9 +15,9 @@ pip install -r requirments.txt
 ```
 ## Scripts
 
-### Prompt Generation Stage
+### 1. Prompt Generation Stage
 
-### Discovery Learning Stage
+### 2. Discovery Learning Stage
 
 ## Result
 
