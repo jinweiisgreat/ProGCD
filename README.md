@@ -46,5 +46,6 @@ Our results:
 
 
 ## Acknowledgements
-The codebase is heavily built on [Cocoop](https://github.com/KaiyangZhou/CoOp?tab=readme-ov-file) and [SimGCD](https://github.com/CVMI-Lab/SimGCD/edit/main/README.md). Thanks for their contribution!
+The codebase is heavily built on [Cocoop](https://github.com/KaiyangZhou/CoOp?tab=readme-ov-file) and [SimGCD](https://github.com/CVMI-Lab/SimGCD). Thanks for their contribution!
+
 
