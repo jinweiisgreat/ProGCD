@@ -174,51 +174,35 @@ def train(clip_model, projector,train_loader, test_loader, unlabelled_train_load
             torch.save(save_dict, args.model_path)
             args.logger.info("model saved to {}.".format(args.model_path))
 
-def get_gpu_memory(gpu_index = 0):
-    if torch.cuda.is_available():
-        reserved_memory = torch.cuda.memory_reserved(gpu_index) / 1024**2
-        allocated_memory = torch.cuda.memory_allocated(gpu_index) / 1024**2
-        print(f"GPU : {reserved_memory:.2f} MiB reserved, {allocated_memory:.2f} MiB allocated")
-    else:
-        print("CUDA is not available")
+# def get_gpu_memory(gpu_index = 0):
+#     if torch.cuda.is_available():
+#         reserved_memory = torch.cuda.memory_reserved(gpu_index) / 1024**2
+#         allocated_memory = torch.cuda.memory_allocated(gpu_index) / 1024**2
+#         print(f"GPU : {reserved_memory:.2f} MiB reserved, {allocated_memory:.2f} MiB allocated")
+#     else:
+#         print("CUDA is not available")
         
-def test(model, projector, test_loader, epoch, weighted, save_name, args):
+
+def test(model, test_loader, epoch, save_name, args):
+
     model.eval()
 
-    print("testing...")
-    
     preds, targets = [], []
     mask = np.array([])
-    
     for batch_idx, (images, label, _) in enumerate(tqdm(test_loader)):
         images = images.cuda(non_blocking=True)
-        all_img_feats, all_txt_feats = model(images.cuda())
-        fusion_feat = weighted(all_img_feats,all_txt_feats)
-        
         with torch.no_grad():
-            # _, logits = model(images)
-            _, logits = projector(fusion_feat.float())
-            
-            batch_preds = logits.argmax(1).cpu().numpy()
-            preds.append(logits.argmax(1).cpu().numpy()) # preds存储的是预测结果的索引
-            
-            all_features.append(fusion_feat.cpu().numpy())
-            all_labels.append(label.cpu().numpy())
-            
+            _, logits = model(images)
+            preds.append(logits.argmax(1).cpu().numpy())
             targets.append(label.cpu().numpy())
-            
-            for pred in batch_preds:
-                class_prediction_counts[pred] += 1
-                
             mask = np.append(mask, np.array([True if x.item() in range(len(args.train_classes)) else False for x in label]))
-            
 
     preds = np.concatenate(preds)
     targets = np.concatenate(targets)
     all_acc, old_acc, new_acc = log_accs_from_preds(y_true=targets, y_pred=preds, mask=mask,
                                                     T=epoch, eval_funcs=args.eval_funcs, save_name=save_name,
                                                     args=args)
-        
+
     return all_acc, old_acc, new_acc
 
 if __name__ == "__main__":
