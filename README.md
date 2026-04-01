@@ -1,7 +1,7 @@
 # Multimodal Self-Distillation for Enhanced Generalized Category Discovery
 
 
-📄 Paper: This repository contains the official implementation of the paper "Multimodal Self-Distillation for Enhanced Generalized Category Discovery", submitted to The Visual Computer (Springer).
+> **📄 Paper:** This repository contains the official implementation of the paper "Multimodal Self-Distillation for Enhanced Generalized Category Discovery", submitted to The Visual Computer (Springer).
 ![image](./assets/progcd_pipeline.png)
 
 
